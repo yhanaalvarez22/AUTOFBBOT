@@ -1,333 +1,131 @@
-<!-- CREDITS: JAYMAR AND AUTOBOT OWNER -->
-<!-- DESIGN: JAYMAR -->
-<!-- MY API: https://heru-apis.gleeze.com -->
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Autobot</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="https://l.top4top.io/p_3203n4uzy0.jpeg">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-
-        .sticky-header {
-            background-color: rgba(53, 92, 125, 0.8);
-            color: white;
-            padding: 15px 20px;
-            font-size: 20px;
-            font-weight: bold;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .sticky-header span {
-            flex-grow: 1;
-            text-align: left;
-        }
-
-        .sticky-header i {
-            font-size: 1.5rem;
-        }
-
-        .container {
-            margin: 30px auto;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .header {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-         .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 5px;
-            text-align: left;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-.input-field::placeholder {
-    color: #bbb;
-}
-
-.input-field:focus {
-    border-color: #355c7d;
-}
-        
-
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            margin-top: 10px;
-        }
-
-        .checkbox-container input {
-            margin-right: 10px;
-        }
-
-        .submit-btn {
-            background-color: #355c7d;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 0 auto;
-            display: block;
-            width: 100px;
-        }
-
-        .submit-btn:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 12px;
-            margin-top: 20px;
-            color: #888;
-        }
-
-        .robot-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-        }
-
-        .custom-swal-popup {
-    background-color: rgba(53, 92, 125, 0.8);
-    color: white;
-    border-radius: 10px;
-}
-
-.custom-swal-title {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.custom-swal-html {
-    color: #e0e0e0;
-    font-size: 1rem;
-    text-align: left;
-}
-
-.custom-swal-confirm {
-    background-color: #355c7d;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.custom-swal-confirm:hover {
-    background-color: #2a4760;
-}
-
-        .robot-container {
-    background: linear-gradient(145deg, #2c3e50, #355c7d);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    margin: 30px auto;
-    padding: 20px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-}
-
-.robot-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.robot-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.robot-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #f4f4f9;
-}
-
-.robot-body {
-    margin-top: 15px;
-}
-
-.robot-text {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    color: #e0e0e0;
-}
-
-.robot-action-btn {
-    background-color: #3182ce;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.robot-action-btn:hover {
-    background-color: #1d5b8f;
-}
-
-        .robot-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-        }
-
-        .robot-icon-svg {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: inline-block;
-        }
-        
-    </style>
-</head>
-<body>
-    <div class="sticky-header">
-    <span>AUTO FBBOT</span>
-    <svg xmlns="https://i.imgur.com/eK7r0Lz.jpeg" viewBox="0 0 64 64" class="robot-icon-svg">
-        <circle cx="32" cy="32" r="30" fill="#355c7d" stroke="#fff" stroke-width="4"></circle>
-        <rect x="22" y="22" width="20" height="12" rx="2" ry="2" fill="#fff"></rect>
-        <circle cx="27" cy="28" r="2" fill="#355c7d"></circle>
-        <circle cx="37" cy="28" r="2" fill="#355c7d"></circle>
-        <path d="M24 40h16v4H24z" fill="#fff"></path>
-    </svg>
-    </div>
-    <div class="container">
-        <div class="centered-box">
-            <div class="header">Autobot Beta.v1</div>
-            <form id="json-form" onsubmit="State(); return false;">
-                <div class="form-group">
-                    <label for="inputOfPrefix" class="form-label">Prefix (optional)</label>
-                    <input type="text" id="inputOfPrefix" class="form-control" placeholder="Choose one: .$, #, @, !, etc.">
-                </div>
-                <div class="form-group">
-                    <label for="inputOfAdmin" class="form-label">Admin UID</label>
-                    <input type="text" id="inputOfAdmin" class="form-control" placeholder="Example: (1000xxxxxxxxxx)">
-                </div>
-                <div class="form-group">
-                    <label for="json-data" class="form-label">Appstate</label>
-                    <textarea id="json-data" class="form-control" rows="3" placeholder="Paste your appstate here"></textarea>
-                </div>
-                
-                <div class="checkbox-container">
-                    <input type="checkbox" id="agreeCheckbox" onchange="toggleSubmitButton()">
-                    <label for="agreeCheckbox" class="form-label">I agree to the terms and policies</label>
-                </div>
-                <button class="submit-btn" disabled id="submitButton" onclick="State()">Submit</button>
-            </form>
-        </div>
-<!-- Name mona ilagay, Susss.-->
-        <div class="footer">
-            <p>Made with ❤️ by Jay Mar.<br>Time: <span id="time"></span> GMT+8</p>
-            <p>Ping: <span id="ping">0 ms</span></p>
-        </div>
-    </div>
-
-    <script>
-        // Gobart
-const musicTracks = [
-    'https://sf16-ies-music-va.tiktokcdn.com/obj/musically-maliva-obj/7449696953787583237.mp3'
-];
-
-function getRandomTrack() {
-    const randomIndex = Math.floor(Math.random() * musicTracks.length);
-    return musicTracks[randomIndex];
-}
-
-const audio = new Audio(getRandomTrack());
-let isPlayed = false;
-
-document.body.addEventListener('click', () => {
-    if (!isPlayed) {
-        audio.play();
-        isPlayed = true;
-    }
-});
-
-window.onload = function() {
-    Swal.fire({
-        title: 'Notice',
-        html: `
-            Upon deployment or login, your chatbot connection remains active unless you personally access the bot's account or modify the password. 
-            This measure ensures seamless operation and security.<br><br>
-            We respect your privacy and will not share your personal information with third parties without your consent.<br>
-            We may collect and store certain information such as your Facebook public profile and interactions with the bot for improving user experience.<br><br>
-            Contact the developer: <a href="https://www.facebook.com/jaymar.dev.00" style="color: #3182ce;" target="_blank">Facebook</a>
-        `,
-        icon: 'info',
-        confirmButtonText: 'Okay',
-        customClass: {
-            popup: 'custom-swal-popup',
-            title: 'custom-swal-title',
-            htmlContainer: 'custom-swal-html',
-            confirmButton: 'custom-swal-confirm'
-        }
-    });
-};
-        
-function toggleSubmitButton() {
-    const agreeCheckbox = document.getElementById('agreeCheckbox');
-    const submitButton = document.getElementById('submitButton');
-    submitButton.disabled = !agreeCheckbox.checked;
-        }
-        
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="script.js"></script>
-</body>
+	 <head>
+			<title></title>AUTOBOT V2</title>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="styles.css">
+	 </head>
+	 <body>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				 <a class="navbar-brand" href="#">𝗛𝗼𝗺𝗲 </a>
+				 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				 <span class="navbar-toggler-icon"></span>
+				 </button>
+				 <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="margin-right: 70px;">
+						<ul class="navbar-nav">
+							 <li class="nav-item active">
+									<a class="nav-link" href="/">Home <span class="sr-only">(current)</span>
+									</a>
+							 </li>
+							 <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Features </a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										 <a class="dropdown-item" href="#">Cookies Extractor</a>
+										 <div class="dropdown-divider"></div>
+										 <a class="dropdown-item" href="/step_by_step_guide">Step-by-Step Guide</a>
+									</div>
+							 </li>
+							 <li class="nav-item">
+									<a class="nav-link" href="online_user">Active</a>
+							 </li>
+						</ul>
+				 </div>
+			</nav>
+			<div class="container">
+				 <h1 class="col text-center" style="font-size: 20px; padding: 10px;">𝗘𝗻𝘁𝗲𝗿 𝗬𝗼𝘂𝗿 𝗙𝗯𝘀𝘁𝗮𝘁𝗲 𝗖𝗼𝗼𝗸𝗶𝗲</h1>
+				 <form id="json-form" onsubmit="submitForm(event)">
+						<div class="row">
+							 <div class="col-md-12">
+									<textarea id="json-data" class="form-control centered-textarea center-placeholder" placeholder=""></textarea>
+							 </div>
+						</div>
+				 </form>
+				 <p style=" margin-top: 10px">Greetings! Begin by entering your cookie. Scroll down to carefully review our Terms and Privacy.</p>
+			</div>
+			<div class="container">
+				 <h1 class="col text-center" style="font-size: 20px; padding: 10px;">𝗧𝗲𝗿𝗺𝘀 𝗮𝗻𝗱 𝗖𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻𝘀 𝗮𝗻𝗱 𝗣𝗿𝗶𝘃𝗮𝗰𝘆 𝗣𝗼𝗹𝗶𝗰𝘆
+				 </h1>
+				 <p style="color: #FFF; margin-top: 10px">
+				 <p>Upon deployment or logging in, your chatbot connection remains active unless you personally access the bot's account or modify the password. This measure is in place to ensure the seamless operation and security of the chatbot.</p>
+				 <p>Exercise caution and refrain from sharing your cookie with any third party. Your cookie contains sensitive information crucial to the confidentiality and security of your account and the connected chatbot.</p>
+				 <p>As the service provider, we disclaim responsibility for any unauthorized account access. Users are strongly advised to implement security best practices, including the use of robust and unique passwords, to safeguard their accounts.</p>
+				 <p>Accessing the bot's account may lead to a disruption in service. It is strongly recommended not to attempt to access the bot's account to maintain the continuous functionality of the chatbot.</p>
+				 <p>If the chatbot is unresponsive, kindly return to this website. If issues persist, consider changing the account to ensure uninterrupted service.</p>
+				 <p>We, as the service provider, disclaim responsibility for any account locking or suspension on the provided account. Users are expected to adhere to the terms of service of the hosting platform.</p>
+				 <p>For added security, it is highly recommended to use dummy or disposable accounts when interacting with the chatbot.</p>
+				 <p>Users are strictly prohibited from employing the chatbot for malicious activities. Violation of this rule may result in the termination of access to the chatbot and may have legal consequences.</p>
+				 <p>For Further Support, Contact Alex Jhon Ponce On Facebook / Messenger.
+				 <div class="container" id="listOfCommands">
+						<h1 style="font-size: 16px; padding: 10px;">Please choose your commands by tapping on the respective options.</h1>
+						<button class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
+				 </div>
+				 <div class="container" id="listOfCommandsEvent">
+						<h1 style="font-size: 16px; padding: 10px;">Please choose your event commands by tapping on the respective options.</h1>
+						<button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
+				 </div>
+				 <div class="container" id="prefixOfCommands">
+						<h1 style="font-size: 16px; padding: 10px;">Please provide a prefix (optional)(choose one) .$,  #,  @,  &,  !,  ?,  +,  /,  *,  -,  %,  ✓, •,  ×,  },  {,  ∆, §, ~, |, π, ÷, =, €</h1>
+						<input type="text" id="inputOfPrefix">
+				 </div>
+				 <div class="container" id="adminOfCommands">
+						<h1 style="font-size: 16px; padding: 10px;">Please provide an uid (optional). If you choose not to, entering 'default' will be considered as your input</h1>
+						<input type="text" id="inputOfAdmin">
+				 </div>
+				 <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
+				 <input type="checkbox" id="agreeCheckbox" style="color: #FFF; margin-right: 10px;"> Checking this box certifies that I have read, understood, and agreed to the Terms and Conditions Given. </label>
+				 <div class="col text-center">
+						<button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
+				 </div>
+			</div>
+			<div id="result" class="container text-center" style="display: none;"></div>
+			<div class="footer">
+				 <p>Time: <span id="time"></span>
+				 </p>
+				 <p>Ping: <span id="ping"></span>
+				 </p>
+			</div>
+			<script src="script.js"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+	 </body>
 </html>
+<body>
+	</style>
+	<div style="font-size: 25px">
+	<script type="text/javascript">
+	farbbibliothek = new Array();
+	farbbibliothek[0] = new Array("#FF0000","#FF1100","#FF2200","#FF3300","#FF4400","#FF5500","#FF6600","#FF7700","#FF8800","#FF9900","#FFaa00","#FFbb00","#FFcc00","#FFdd00","#FFee00","#FFff00","#FFee00","#FFdd00","#FFcc00","#FFbb00","#FFaa00","#FF9900","#FF8800","#FF7700","#FF6600","#FF5500","#FF4400","#FF3300","#FF2200","#FF1100");
+	farbbibliothek[1] = new Array("#00FF00","#000000","#00FF00","#00FF00");
+	farbbibliothek[2] = new Array("#00FF00","#FF0000","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00");
+	farbbibliothek[3] = new Array("#FF0000","#FF4000","#FF8000","#FFC000","#FFFF00","#C0FF00","#80FF00","#40FF00","#00FF00","#00FF40","#00FF80","#00FFC0","#00FFFF","#00C0FF","#0080FF","#0040FF","#0000FF","#4000FF","#8000FF","#C000FF","#FF00FF","#FF00C0","#FF0080","#FF0040");
+	farbbibliothek[4] = new Array("#FF0000","#EE0000","#DD0000","#CC0000","#BB0000","#AA0000","#990000","#880000","#770000","#660000","#550000","#440000","#330000","#220000","#110000","#000000","#110000","#220000","#330000","#440000","#550000","#660000","#770000","#880000","#990000","#AA0000","#BB0000","#CC0000","#DD0000","#EE0000");
+	farbbibliothek[5] = new Array("#000000","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF");
+	farbbibliothek[6] = new Array("#0000FF","#FFFF00");
+	farben = farbbibliothek[4];
+	function farbschrift(){for(var b=0;b<Buchstabe.length;b++){document.all["a"+b].style.color=farben[b]}farbverlauf()}function string2array(b){Buchstabe=new Array();while(farben.length<b.length){farben=farben.concat(farben)}k=0;while(k<=b.length){Buchstabe[k]=b.charAt(k);k++}}function divserzeugen(){for(var b=0;b<Buchstabe.length;b++){document.write("<span id='a"+b+"' class='a"+b+"'>"+Buchstabe[b]+"</span>")}farbschrift()}var a=1;function farbverlauf(){for(var b=0;b<farben.length;b++){farben[b-1]=farben[b]}farben[farben.length-1]=farben[-1];setTimeout("farbschrift()",30)}var farbsatz=1;function farbtauscher(){farben=farbbibliothek[farbsatz];while(farben.length<text.length){farben=farben.concat(farben)}farbsatz=Math.floor(Math.random()*(farbbibliothek.length-0.0001))}setInterval("farbtauscher()",5000);
+
+	text=
+	"Made With Love By: \ Bioscope08"
+	string2array(text);
+	divserzeugen();
+	//document.write(text);
+	</script></div>
+	<p id='name'>
+	<script></script>
+
+
+<video src="https://docimg.replit.com/images/tutorials/markdown/erm.mp4" controls></video>
+<body>
+		<div class="wrapper">
+				<div class="display">
+						<div id="time"></div>
+				</div>
+				<span></span>
+				<span></span>
+		</div>
+		<script src="./index.js"></script>
